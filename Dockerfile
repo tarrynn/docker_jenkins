@@ -221,4 +221,6 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 COPY plugins.sh /usr/local/bin/plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 
-RUN chmod +x /usr/local/bin/*.sh
+RUN chmod +x /usr/local/bin/install-plugins.sh
+RUN chmod +x /usr/local/bin/jenkins.sh
+RUN chmod +x /usr/local/bin/plugins.sh
