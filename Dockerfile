@@ -1,13 +1,5 @@
 FROM jenkins:latest
 
-#
-# NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
-#
-# PLEASE DO NOT EDIT IT DIRECTLY.
-#
-
-FROM debian:jessie
-
 # prevent Debian's PHP packages from being installed
 # https://github.com/docker-library/php/pull/542
 RUN set -eux; \
