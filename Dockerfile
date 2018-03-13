@@ -224,3 +224,4 @@ COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 RUN chmod +x /usr/local/bin/install-plugins.sh
 RUN chmod +x /usr/local/bin/jenkins.sh
 RUN chmod +x /usr/local/bin/plugins.sh
+RUN chmod +x /usr/local/bin/jenkins-support
