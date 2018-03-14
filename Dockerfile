@@ -1,19 +1,21 @@
-FROM jenkinsci/jenkins:latest
+FROM jenkins/jenkins:lts
+
+USER root
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        wget python python2.7-dev fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
        libdb-dev libevent-dev libffi-dev libgeoip-dev libglib2.0-dev libjpeg-dev libkrb5-dev \
-       liblzma-dev libmagickcore-dev libmagickwand-dev libmysqlclient-dev libncurses-dev libpng-dev \
+       liblzma-dev libmagickcore-dev libmagickwand-dev libncurses-dev libpng-dev \
        libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev \
        libyaml-dev make patch xz-utils zlib1g-dev unzip curl \
     && apt-get -y install git \
     && apt-get -qy install libcurl4-openssl-dev git-man liberror-perl \
     && apt-get clean
 
-ENV RUBY_MAJOR="2.2" \
-    RUBY_VERSION="2.2.3" \
+ENV RUBY_MAJOR="2.5" \
+    RUBY_VERSION="2.5.0" \
     RUBYGEMS_VERSION="2.6.12" \
     BUNDLER_VERSION="1.14.6" \
     GEM_HOME="/usr/local/bundle"
@@ -87,7 +89,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 RUN apt-get update \
-    && apt-get install -y npm
+    && apt-get install -y build-essential
 
 RUN apt-get update \
     && apt-get install -y telnet beanstalkd redis-server
